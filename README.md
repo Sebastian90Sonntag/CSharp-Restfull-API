@@ -12,7 +12,7 @@ Ein moderner, schichtbasierter RESTful UserService in C# und .NET 8.
 
 ## Projektstruktur
 
-```
+```markdown
 CSharp-Restfull-API/
 │
 ├── Controllers/           # API-Endpunkte
@@ -27,16 +27,19 @@ CSharp-Restfull-API/
 ## Schnellstart
 
 1. **Abhängigkeiten installieren**
+
    ```bash
    dotnet restore
    ```
 
 2. **Projekt bauen**
+
    ```bash
    dotnet build
    ```
 
 3. **Starten**
+
    ```bash
    dotnet run
    ```
