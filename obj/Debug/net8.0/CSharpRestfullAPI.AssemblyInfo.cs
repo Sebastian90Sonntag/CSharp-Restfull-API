@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CSharpRestfullAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb70f9bd4e6c44037ef1d341ef30b6eadc292499")]
 [assembly: System.Reflection.AssemblyProductAttribute("CSharpRestfullAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CSharpRestfullAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
