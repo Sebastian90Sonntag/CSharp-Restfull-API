@@ -1,0 +1,40 @@
+# Build- und Veröffentlichungsordner
+bin/
+obj/
+out/
+
+# User-spezifische Dateien
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider/JetBrains
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Paketverwaltung
+packages/
+.nuget/
+*.nupkg
+
+# Sonstiges
+*.DS_Store
+*.swp
+*.bak
+
+# Dotnet-Tools
+*.db
+
+# Secret-Dateien
+secrets.json
+
+# Test-Resultate
+TestResults/
+coverage/
