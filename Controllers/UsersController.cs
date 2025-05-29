@@ -9,7 +9,7 @@ namespace CSharpRestfullAPI.Controllers
   using Microsoft.AspNetCore.Mvc;
 
   [ApiController]
-  [Route("api/[controller]")]
+  [Route(template: "api/[controller]")]
   public class UsersController : ControllerBase
   {
     private readonly UserService _service;
@@ -19,11 +19,11 @@ namespace CSharpRestfullAPI.Controllers
       _service = service;
     }
 
-    [HttpGet("{id}")]
+    [HttpGet(template: "{id}")]
     public async Task<IActionResult> Get(int id)
     {
-      var user = await _service.GetUserAsync(id);
-      return user is not null ? Ok(user) : NotFound();
+      User? user = await _service.GetUserAsync(id: id);
+      return user is not null ? Ok(value: user) : NotFound();
     }
 
     [HttpGet]
@@ -32,8 +32,8 @@ namespace CSharpRestfullAPI.Controllers
     [HttpPost]
     public async Task<IActionResult> Create(User user)
     {
-      await _service.AddUserAsync(user);
-      return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
+      await _service.AddUserAsync(user: user);
+      return CreatedAtAction(actionName: nameof(Get), routeValues: new { id = user.Id }, value: user);
     }
   }
 }

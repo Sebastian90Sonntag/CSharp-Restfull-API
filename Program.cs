@@ -10,14 +10,14 @@ using CSharpRestfullAPI.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using CSharpRestfullAPI.Infrastructure.Data;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder? builder = WebApplication.CreateBuilder(args: args);
 
 // Add services to the container. -> configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 if(builder.Environment.IsDevelopment())
 {
-  builder.Services.AddDbContext<AppDbContext>(opt =>
-      opt.UseInMemoryDatabase("TestDb"));
+  builder.Services.AddDbContext<AppDbContext>(optionsAction: opt =>
+      opt.UseInMemoryDatabase(databaseName: "TestDb"));
 }
 else
 {
@@ -31,7 +31,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-var app = builder.Build();
+WebApplication? app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
