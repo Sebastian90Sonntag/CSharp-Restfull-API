@@ -1,28 +1,28 @@
-# CSharp RESTful API
+# CSharpRestfullAPI
 
-![.NET](https://img.shields.io/badge/.NET_8-512BD4?style=flat&logo=dotnet&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=csharp&logoColor=white)
-![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
+![.NET CI](https://github.com/Sebastian90Sonntag/CSharp-Restfull-API/actions/workflows/dotnet.yml/badge.svg)
 
 Ein moderner, schichtbasierter RESTful UserService in C# und .NET 8.
 
 ## Features
 
-- **RESTful API** für User-Management (CRUD)
+- **RESTful API** für User-Management
 - **Clean Architecture** (Trennung von Domain, Application, Infrastructure)
 - **Dependency Injection** und **EF Core**
 - **InMemory-Datenbank** für Entwicklung (optional SQLite für Produktion)
 - **Swagger/OpenAPI**-Dokumentation
+- **xUnit-Tests** mit Moq
 
 ## Projektstruktur
 
 ```
 CSharp-Restfull-API/
-├── Controllers/           # API-Endpunkte
-├── Domain/                # Entitäten & Interfaces
-├── Infrastructure/        # Datenzugriff (EF Core)
-├── Services/              # Geschäftslogik
-├── Program.cs             # Einstiegspunkt & DI
+├── Controllers/                # API-Endpunkte
+├── Domain/                     # Entitäten & Interfaces
+├── Infrastructure/             # Datenzugriff (EF Core)
+├── Services/                   # Geschäftslogik
+├── CSharpRestfullAPI.Tests/    # Unit Tests (xUnit + Moq)
+├── Program.cs                  # Einstiegspunkt & DI
 ├── CSharpRestfullAPI.csproj
 └── CSharp-Restfull-API.sln
 ```
@@ -30,24 +30,27 @@ CSharp-Restfull-API/
 ## Schnellstart
 
 ```bash
-# Abhängigkeiten installieren
 dotnet restore
-
-# Projekt bauen
 dotnet build
-
-# Starten
 dotnet run
 ```
 
-Swagger UI: [http://localhost:5000/swagger](http://localhost:5000/swagger) (Port ggf. anpassen)
+**Swagger UI:** [http://localhost:5000/swagger](http://localhost:5000/swagger) (Port ggf. anpassen)
 
-## API-Endpunkte
+## Tests
+
+```bash
+dotnet test
+```
+
+Tests nutzen **xUnit** und **Moq** für Unit-Tests des UserService.
+
+## Beispiel-Endpunkte
 
 | Methode | Endpunkt | Beschreibung |
 |---------|----------|--------------|
 | `GET` | `/api/users` | Alle User abrufen |
-| `GET` | `/api/users/{id}` | User nach ID abrufen |
+| `GET` | `/api/users/{id}` | User nach ID |
 | `POST` | `/api/users` | User anlegen |
 | `PUT` | `/api/users/{id}` | User aktualisieren |
 | `DELETE` | `/api/users/{id}` | User löschen |
@@ -55,13 +58,12 @@ Swagger UI: [http://localhost:5000/swagger](http://localhost:5000/swagger) (Port
 ## Datenbank
 
 - **Standard:** InMemory (nur Entwicklung)
-- **Produktiv:** SQLite (konfigurierbar in `Program.cs`)
+- **Produktiv:** SQLite (auskommentiert in `Program.cs`)
 
-## Hinweise
+## CI
 
-- Für produktiven Einsatz SQLite oder eine andere Datenbank aktivieren
-- Die Architektur ist für Erweiterbarkeit und Testbarkeit ausgelegt
+GitHub Actions führt **Build** und **Tests** aus bei jedem Push und PR auf `main`.
 
 ---
 
-**Autor:** Sebastian Sonntag — 2025
+**Autor:** Sebastian Sonntag · 2025
