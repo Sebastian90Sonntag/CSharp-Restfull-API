@@ -1,10 +1,14 @@
-# CSharpRestfullAPI
+# CSharp RESTful API
+
+![.NET](https://img.shields.io/badge/.NET_8-512BD4?style=flat&logo=dotnet&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=csharp&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
 
 Ein moderner, schichtbasierter RESTful UserService in C# und .NET 8.
 
 ## Features
 
-- **RESTful API** für User-Management
+- **RESTful API** für User-Management (CRUD)
 - **Clean Architecture** (Trennung von Domain, Application, Infrastructure)
 - **Dependency Injection** und **EF Core**
 - **InMemory-Datenbank** für Entwicklung (optional SQLite für Produktion)
@@ -12,9 +16,8 @@ Ein moderner, schichtbasierter RESTful UserService in C# und .NET 8.
 
 ## Projektstruktur
 
-```markdown
+```
 CSharp-Restfull-API/
-│
 ├── Controllers/           # API-Endpunkte
 ├── Domain/                # Entitäten & Interfaces
 ├── Infrastructure/        # Datenzugriff (EF Core)
@@ -26,47 +29,39 @@ CSharp-Restfull-API/
 
 ## Schnellstart
 
-1. **Abhängigkeiten installieren**
+```bash
+# Abhängigkeiten installieren
+dotnet restore
 
-   ```bash
-   dotnet restore
-   ```
+# Projekt bauen
+dotnet build
 
-2. **Projekt bauen**
+# Starten
+dotnet run
+```
 
-   ```bash
-   dotnet build
-   ```
+Swagger UI: [http://localhost:5000/swagger](http://localhost:5000/swagger) (Port ggf. anpassen)
 
-3. **Starten**
+## API-Endpunkte
 
-   ```bash
-   dotnet run
-   ```
-
-4. **Swagger UI**
-   - Im Browser öffnen: [http://localhost:5000/swagger](http://localhost:5000/swagger) (Port ggf. anpassen)
+| Methode | Endpunkt | Beschreibung |
+|---------|----------|--------------|
+| `GET` | `/api/users` | Alle User abrufen |
+| `GET` | `/api/users/{id}` | User nach ID abrufen |
+| `POST` | `/api/users` | User anlegen |
+| `PUT` | `/api/users/{id}` | User aktualisieren |
+| `DELETE` | `/api/users/{id}` | User löschen |
 
 ## Datenbank
 
 - **Standard:** InMemory (nur Entwicklung)
-- **Produktiv:** SQLite (auskommentiert in `Program.cs`)
-
-## Beispiel-Endpunkte
-
-- `GET /api/users` – Alle User abrufen
-- `GET /api/users/{id}` – User nach ID abrufen
-- `POST /api/users` – User anlegen
-- `PUT /api/users/{id}` – User aktualisieren
-- `DELETE /api/users/{id}` – User löschen
+- **Produktiv:** SQLite (konfigurierbar in `Program.cs`)
 
 ## Hinweise
 
-- Für produktiven Einsatz SQLite oder eine andere Datenbank aktivieren.
-- Die Architektur ist für Erweiterbarkeit und Testbarkeit ausgelegt.
+- Für produktiven Einsatz SQLite oder eine andere Datenbank aktivieren
+- Die Architektur ist für Erweiterbarkeit und Testbarkeit ausgelegt
 
 ---
 
-**Autor:**  
-Sebastian Sonntag  
-2025
+**Autor:** Sebastian Sonntag — 2025
